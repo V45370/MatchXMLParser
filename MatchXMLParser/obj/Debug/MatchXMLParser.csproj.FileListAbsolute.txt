@@ -1,0 +1,9 @@
+c:\users\v45370\documents\visual studio 2017\Projects\MatchXMLParser\MatchXMLParser\bin\Debug\MatchXMLParser.exe.config
+c:\users\v45370\documents\visual studio 2017\Projects\MatchXMLParser\MatchXMLParser\bin\Debug\MatchXMLParser.exe
+c:\users\v45370\documents\visual studio 2017\Projects\MatchXMLParser\MatchXMLParser\bin\Debug\MatchXMLParser.pdb
+c:\users\v45370\documents\visual studio 2017\Projects\MatchXMLParser\MatchXMLParser\obj\Debug\MatchXMLParser.exe
+c:\users\v45370\documents\visual studio 2017\Projects\MatchXMLParser\MatchXMLParser\obj\Debug\MatchXMLParser.pdb
+C:\Users\V45370\Documents\Visual Studio 2017\Projects\MatchXMLParser\MatchXMLParser\bin\Debug\EntityFramework.dll
+C:\Users\V45370\Documents\Visual Studio 2017\Projects\MatchXMLParser\MatchXMLParser\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\V45370\Documents\Visual Studio 2017\Projects\MatchXMLParser\MatchXMLParser\bin\Debug\EntityFramework.xml
+C:\Users\V45370\Documents\Visual Studio 2017\Projects\MatchXMLParser\MatchXMLParser\bin\Debug\EntityFramework.SqlServer.xml
