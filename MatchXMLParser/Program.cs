@@ -12,7 +12,7 @@ namespace MatchXMLParser
     {
         static void Main(string[] args)
         {
-            string rootDir = @"C:\Users\V45370\Desktop\football-data-collection-master\football-data-collection-master\footballData\footballData\matches\";
+            string rootDir = @"H:\OneDrive\Projects\BettingSerivce\FootballDataCollectionFork2\footballData\footballData";
             string[] fileNames = Directory.GetFiles(rootDir, "*.*", SearchOption.AllDirectories);
             XmlParser parser = new XmlParser();
 

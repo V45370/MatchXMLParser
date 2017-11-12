@@ -131,13 +131,13 @@ namespace MatchXMLParser
                 AwayPlayers = awayPlayers,
                 HomePlayers = homePlayers
             };
+            //match.Goals = goals;
             CreateMatch(match);
         }
         private void CreateMatch(Match match)
         {
             var matchRepo = new MatchRepository();
             matchRepo.Add(match);
-
         }
         private void CreateTeam(Team team)
         {
