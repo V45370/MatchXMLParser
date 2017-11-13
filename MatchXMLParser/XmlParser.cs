@@ -104,8 +104,11 @@ namespace MatchXMLParser
                 string type = goalNode.Element("subtype") != null ? goalNode.Element("subtype").Value : null;
                 string teamId = goalNode.Element("team").Value;
 
+                int matchIdInt = int.Parse(matchId);
+
                 Goal goal = new Goal()
                 {
+                    MatchId = matchIdInt,
                     ExternalId = goalId,
                     Minute = minute,
                     ScorerId = scorerId,

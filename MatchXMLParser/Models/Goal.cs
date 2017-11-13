@@ -14,6 +14,8 @@ namespace MatchXMLParser.Models
         }
        
         public int Id { get; set; }
+
+        public int MatchId { get; set; }
         //public int ExternalId { get; set; }
         public string ExternalId { get; set; }
         //public int Minute { get; set; }
