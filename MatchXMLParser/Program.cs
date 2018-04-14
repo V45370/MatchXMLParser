@@ -16,7 +16,7 @@ namespace MatchXMLParser
         {
             QueryGoals();
 
-            string rootDir = @"H:\OneDrive\Projects\BettingSerivce\FootballDataCollectionFork2\footballData\footballData\";
+            string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\footballData\footballData\matches";
             string[] fileNames = Directory.GetFiles(rootDir, "*.*", SearchOption.AllDirectories);
             XmlParser parser = new XmlParser();
 

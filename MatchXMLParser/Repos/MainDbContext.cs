@@ -8,6 +8,7 @@ namespace MatchXMLParser.Repos
         public MainDbContext()
             : base("MatchXMLParser")
         {
+            Database.SetInitializer<MainDbContext>(new CreateDatabaseIfNotExists<MainDbContext>());
         }
 
         public virtual IDbSet<Match> Matches { get; set; }
