@@ -12,36 +12,18 @@ namespace MatchXMLParser
 {
     class Program
     {
+        static XmlParser parser = new XmlParser();
+
         static void Main(string[] args)
         {
             QueryGoals();
 
             string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\footballData\footballData\matches";
             string[] fileNames = Directory.GetFiles(rootDir, "*.*", SearchOption.AllDirectories);
-            XmlParser parser = new XmlParser();
 
-            foreach (var fileName in fileNames)
-            {
-                string ext = Path.GetExtension(fileName);
-                if (ext == ".xml")
-                {
-                    Console.WriteLine(fileName);
-                    try
-                    {
-                        parser.ParseMatch(fileName);
-                    }
-                    catch (XmlException ex)
-                    {
-                        Console.WriteLine(ex.StackTrace);
-                    }
-                    catch(NullReferenceException ex)
-                    {
-                        Console.WriteLine(ex.StackTrace);
-                    }
-                }
-            }
-           
+            parser.ParseAllMatches(fileNames.ToList());
         }
+      
 
         public static void QueryGoals()
         {

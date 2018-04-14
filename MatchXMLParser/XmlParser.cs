@@ -2,6 +2,7 @@
 using MatchXMLParser.Repos;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,33 @@ namespace MatchXMLParser
 {
     public class XmlParser
     {
+
+        public void ParseAllMatches(List<string> fileNames)
+        {
+            fileNames.SelectAsync((fileName) => ProcessXML(fileName)).Wait();
+        }
+        private  Task<string> ProcessXML(string fileName)
+        {
+            string ext = Path.GetExtension(fileName);
+            if (ext == ".xml")
+            {
+                Console.WriteLine(fileName);
+                try
+                {
+                    this.ParseMatch(fileName);
+                }
+                catch (XmlException ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                }
+                catch (NullReferenceException ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                }
+            }
+            return Task.FromResult("");
+        }
+
         public void ParseMatch(string filePath)
         {
             var xDoc = XDocument.Load(filePath);
