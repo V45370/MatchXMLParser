@@ -16,6 +16,8 @@ namespace MatchXMLParser.Repos
         public virtual IDbSet<Team> Teams { get; set; }
         public virtual IDbSet<Goal> Goals { get; set; }
 
+        public virtual IDbSet<Corner> Corners { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer(

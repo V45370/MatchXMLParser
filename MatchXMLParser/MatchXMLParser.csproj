@@ -54,6 +54,7 @@
       <DependentUpon>201711122223369_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Corner.cs" />
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\Match.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="ParallelismExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\CornerRepository.cs" />
     <Compile Include="Repos\GoalRepository.cs" />
     <Compile Include="Repos\IRepository.cs" />
     <Compile Include="Repos\PlayerRepository.cs" />

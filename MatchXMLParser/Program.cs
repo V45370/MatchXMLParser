@@ -16,9 +16,8 @@ namespace MatchXMLParser
 
         static void Main(string[] args)
         {
-            QueryGoals();
 
-            string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\footballData\footballData\matches";
+            string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\footballData\footballData\matches\France";
             string[] fileNames = Directory.GetFiles(rootDir, "*.*", SearchOption.AllDirectories);
 
             parser.ParseAllMatches(fileNames.ToList());
@@ -29,46 +28,14 @@ namespace MatchXMLParser
         {
             MatchRepository matchRepo = new MatchRepository();
             var matches = matchRepo.List.ToList();
-            GoalRepository goalsGoalRepository = new GoalRepository();
-
-            List<int> firstGoals = new List<int>();
-            List<int> secondGoals = new List<int>();
-            List<int> thirdGoals = new List<int>();
-
-
+            GoalRepository goalRepository = new GoalRepository();
             //Premier League
-            int goalsCount = 0, goalsFirstCount = 0, goalsSecondCound = 0, goalsThirdsCound = 0;
-            int matchesCount = matches.Where(x => x.League == "Spain Primera Division").Count();
-            foreach (Match match in matches.Where(x => x.League == "Spain Primera Division"))
-            {
-                int id = int.Parse(match.ExternalId);
-                var goals = goalsGoalRepository.List.Where(x => x.MatchId == id).OrderBy(y => y.Minute);
-
-                int count = 0;
-                foreach (Goal goal in goals)
-                {
-                    int goalMinute = int.Parse(goal.Minute);
-                    count++;
-                    if (count == 1)
-                    {
-                        firstGoals.Add(goalMinute);
-                        goalsFirstCount++;
-                    }
-                        
-                    else if (count == 2)
-                    {
-                        secondGoals.Add(goalMinute);
-                        goalsSecondCound++;
-                    }
-                    else if (count == 3)
-                    {
-                        thirdGoals.Add(goalMinute);
-                        goalsThirdsCound++;
-                    }
-                        
-                    goalsCount++;
-                }
-            }
+            //int matchesCount = matches.Where(x => x.League == "Spain Primera Division").Count();
+            //foreach (Match match in matches.Where(x => x.League == "Spain Primera Division"))
+            //{
+            //    int id = int.Parse(match.ExternalId);
+            //    var goals = goalRepository.List.Where(x => x.MatchId == id).OrderBy(y => y.Minute);
+            //}
         }
     }
 }
