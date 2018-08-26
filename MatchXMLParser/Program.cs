@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using MatchXMLParser.Models;
 using MatchXMLParser.Repos;
 
 namespace MatchXMLParser
@@ -16,10 +10,8 @@ namespace MatchXMLParser
 
         static void Main(string[] args)
         {
-
-            string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\footballData\footballData\matches\France";
+            string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\footballData\footballData\matches\England\Premier League\2017";
             string[] fileNames = Directory.GetFiles(rootDir, "*.*", SearchOption.AllDirectories);
-
             parser.ParseAllMatches(fileNames.ToList());
         }
       

@@ -18,6 +18,8 @@ namespace MatchXMLParser.Repos
 
         public virtual IDbSet<Corner> Corners { get; set; }
 
+        public virtual IDbSet<Possession> Possessions { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer(

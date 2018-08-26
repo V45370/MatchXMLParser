@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Corner.cs" />
+    <Compile Include="Models\Possession.cs" />
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\Match.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Repos\PlayerRepository.cs" />
     <Compile Include="Repos\MainDbContext.cs" />
     <Compile Include="Repos\MatchRepository.cs" />
+    <Compile Include="Repos\PossessionRepository.cs" />
     <Compile Include="Repos\TeamRepository.cs" />
     <Compile Include="XmlParser.cs" />
   </ItemGroup>

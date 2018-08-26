@@ -144,7 +144,7 @@ namespace MatchXMLParser
             var goalNodes = xml.Elements("goal").Nodes();
             foreach (XElement goalNode in goalNodes)
             {
-                string goalId = goalNode.Element("id")!= null ? goalNode.Element("id").Value : null; ; ;
+                string goalId = goalNode.Element("id")!= null ? goalNode.Element("id").Value : null;
                 string minute = goalNode.Element("elapsed")!= null ? goalNode.Element("elapsed").Value : null;
                 string scorerId = goalNode.Element("player1") != null? goalNode.Element("player1").Value : null;
                 string assistId = goalNode.Element("player2") != null ? goalNode.Element("player2").Value : null;
@@ -167,11 +167,10 @@ namespace MatchXMLParser
                 goals.Add(goal);
             }
 
-            List<Corner> corners = new List<Corner>();
             var cornerNodes = xml.Elements("corner").Nodes();
             foreach (XElement corner in cornerNodes)
             {
-                string goalId = corner.Element("id").Value;
+                string cornerId = corner.Element("id").Value;
                 string minute = corner.Element("elapsed").Value;
                 string scorerId = corner.Element("player1") != null ? corner.Element("player1").Value : null;
                 string teamId = corner.Element("team") != null ? corner.Element("team").Value : null;
@@ -181,12 +180,33 @@ namespace MatchXMLParser
                 Corner cornerObject = new Corner()
                 {
                     MatchId = matchIdInt,
-                    ExternalId = goalId,
+                    ExternalId = cornerId,
                     Minute = minute,
                     TeamId = teamId
                 };
-                CreateGoal(cornerObject);
-                corners.Add(cornerObject);
+                CreateCorner(cornerObject);
+            }
+
+            List<Possession> possessions = new List<Possession>();
+            var possessionNodes = xml.Elements("possession").Nodes();
+            foreach (XElement corner in possessionNodes)
+            {
+                string minute = corner.Element("elapsed").Value;
+                string homePos = corner.Element("stats").Element("homepos").Value;
+                string awayPos = corner.Element("stats").Element("awaypos").Value;
+                string possessionId = corner.Element("id").Value;
+
+                int matchIdInt = int.Parse(matchId);
+
+                Possession posessionObject = new Possession()
+                {
+                    MatchId = matchIdInt,
+                    Minute = minute,
+                    HomePossession = homePos,
+                    AwayPossession = awayPos,
+                    ExternalId = possessionId
+                };
+                CreatePossession(posessionObject);
             }
 
             //Match
@@ -221,13 +241,19 @@ namespace MatchXMLParser
                 teamRepo.Add(team);
             }
         }
+
+        private void CreatePossession(Possession poss)
+        {
+            var possRepo = new PossessionRepository();
+            possRepo.Add(poss);
+        }
         private void CreateGoal(Goal goal)
         {
             var goalRepo = new GoalRepository();
             goalRepo.Add(goal);
         }
 
-        private void CreateGoal(Corner corner)
+        private void CreateCorner(Corner corner)
         {
             var cornerRepo = new CornerRepository();
             cornerRepo.Add(corner);
