@@ -20,6 +20,12 @@ namespace MatchXMLParser.Repos
 
         public virtual IDbSet<Possession> Possessions { get; set; }
 
+        public virtual IDbSet<ShotOn> ShotsOn{ get; set; }
+
+        public virtual IDbSet<ShotOff> ShotsOff { get; set; }
+
+        public virtual IDbSet<Cross> Crosses{ get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer(

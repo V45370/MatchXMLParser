@@ -172,7 +172,7 @@ namespace MatchXMLParser
             {
                 string cornerId = corner.Element("id").Value;
                 string minute = corner.Element("elapsed").Value;
-                string scorerId = corner.Element("player1") != null ? corner.Element("player1").Value : null;
+                string player1 = corner.Element("player1") != null ? corner.Element("player1").Value : null;
                 string teamId = corner.Element("team") != null ? corner.Element("team").Value : null;
 
                 int matchIdInt = int.Parse(matchId);
@@ -182,9 +182,73 @@ namespace MatchXMLParser
                     MatchId = matchIdInt,
                     ExternalId = cornerId,
                     Minute = minute,
-                    TeamId = teamId
+                    TeamId = teamId,
+                    Player1 = player1
                 };
                 CreateCorner(cornerObject);
+            }
+
+            var shotOnNodes = xml.Elements("shoton").Nodes();
+            foreach (XElement shotOn in shotOnNodes)
+            {
+                string cornerId = shotOn.Element("id").Value;
+                string minute = shotOn.Element("elapsed").Value;
+                string player1 = shotOn.Element("player1") != null ? shotOn.Element("player1").Value : null;
+                string teamId = shotOn.Element("team") != null ? shotOn.Element("team").Value : null;
+
+                int matchIdInt = int.Parse(matchId);
+
+                ShotOn shotOnObject = new ShotOn()
+                {
+                    MatchId = matchIdInt,
+                    ExternalId = cornerId,
+                    Minute = minute,
+                    TeamId = teamId,
+                    Player1 = player1
+                };
+                CreateShotOn(shotOnObject);
+            }
+
+            var shotOffNodes = xml.Elements("shotoff").Nodes();
+            foreach (XElement shotOff in shotOffNodes)
+            {
+                string cornerId = shotOff.Element("id").Value;
+                string minute = shotOff.Element("elapsed").Value;
+                string player1 = shotOff.Element("player1") != null ? shotOff.Element("player1").Value : null;
+                string teamId = shotOff.Element("team") != null ? shotOff.Element("team").Value : null;
+
+                int matchIdInt = int.Parse(matchId);
+
+                ShotOff shotOffObject = new ShotOff()
+                {
+                    MatchId = matchIdInt,
+                    ExternalId = cornerId,
+                    Minute = minute,
+                    TeamId = teamId,
+                    Player1 = player1
+                };
+                CreateShotOff(shotOffObject);
+            }
+
+            var crossesNodes = xml.Elements("cross").Nodes();
+            foreach (XElement cross in crossesNodes)
+            {
+                string cornerId = cross.Element("id").Value;
+                string minute = cross.Element("elapsed").Value;
+                string player1 = cross.Element("player1") != null ? cross.Element("player1").Value : null;
+                string teamId = cross.Element("team") != null ? cross.Element("team").Value : null;
+
+                int matchIdInt = int.Parse(matchId);
+
+                Cross crossObject = new Cross()
+                {
+                    MatchId = matchIdInt,
+                    ExternalId = cornerId,
+                    Minute = minute,
+                    TeamId = teamId,
+                    Player1 = player1,
+                };
+                CreateCross(crossObject);
             }
 
             List<Possession> possessions = new List<Possession>();
@@ -257,6 +321,24 @@ namespace MatchXMLParser
         {
             var cornerRepo = new CornerRepository();
             cornerRepo.Add(corner);
+        }
+
+        private void CreateShotOn(ShotOn shotOn)
+        {
+            var shotOnRepostirotry = new ShotOnRepostirotry();
+            shotOnRepostirotry.Add(shotOn);
+        }
+
+        private void CreateShotOff(ShotOff shotOff)
+        {
+            var shotOffRepostirotry = new ShotOffRepostirotry();
+            shotOffRepostirotry.Add(shotOff);
+        }
+
+        private void CreateCross(Cross cross)
+        {
+            var crossRepostirotry = new CrossesRepository();
+            crossRepostirotry.Add(cross);
         }
 
         private void CreatePlayer(Player player)
