@@ -10,8 +10,9 @@ namespace MatchXMLParser
 
         static void Main(string[] args)
         {
-            string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\footballData\footballData\matches\England\Premier League\2017";
-            string[] fileNames = Directory.GetFiles(rootDir, "*.*", SearchOption.AllDirectories);
+            // string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\footballData\footballData\matches\England\Premier League\2017";
+            string rootDir = @"G:\GitProjects\FootballDataCollectionFork2\DataScience\Matches"; 
+            string[] fileNames = Directory.GetFiles(rootDir, "*.xml", SearchOption.AllDirectories);
             parser.ParseAllMatches(fileNames.ToList());
         }
       

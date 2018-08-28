@@ -70,6 +70,10 @@ namespace MatchXMLParser
 
         private void Extract(XElement xml)
         {
+            try
+            {
+
+            
             string country = xml.Element("country") != null ? xml.Element("country").Value : null;
             string league = xml.Element("league") != null ? xml.Element("league").Value : null;
             string season = xml.Element("season") != null ? xml.Element("season").Value : null;
@@ -256,9 +260,10 @@ namespace MatchXMLParser
             foreach (XElement corner in possessionNodes)
             {
                 string minute = corner.Element("elapsed").Value;
-                string homePos = corner.Element("stats").Element("homepos").Value;
-                string awayPos = corner.Element("stats").Element("awaypos").Value;
+                string homePos = corner.Element("homepos") != null ? corner.Element("homepos").Value : string.Empty;
+                string awayPos = corner.Element("awaypos") != null ? corner.Element("awaypos").Value : string.Empty;
                 string possessionId = corner.Element("id").Value;
+                string teamId = corner.Element("team") != null ? corner.Element("team").Value : null ;
 
                 int matchIdInt = int.Parse(matchId);
 
@@ -268,8 +273,11 @@ namespace MatchXMLParser
                     Minute = minute,
                     HomePossession = homePos,
                     AwayPossession = awayPos,
-                    ExternalId = possessionId
+                    ExternalId = possessionId,
                 };
+
+                if(teamId != null)
+                    posessionObject.TeamId = int.Parse(teamId);
                 CreatePossession(posessionObject);
             }
 
@@ -289,6 +297,11 @@ namespace MatchXMLParser
             };
             //match.Goals = goals;
             CreateMatch(match);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         private void CreateMatch(Match match)
         {

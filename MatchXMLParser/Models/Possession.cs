@@ -16,5 +16,6 @@ namespace MatchXMLParser.Models
         public string Minute { get; set; }
         public string HomePossession { get; set; }
         public string AwayPossession { get; set; }
+        public int TeamId { get; set; }
     }
 }
