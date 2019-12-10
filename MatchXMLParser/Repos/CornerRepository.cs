@@ -48,7 +48,7 @@ namespace MatchXMLParser.Repos
             var result = (from r in _context.Corners where r.Id == Id select r).FirstOrDefault();
             return result;
         }
-        public Corner FindByExternalId(string externalId)
+        public Corner FindByExternalId(int externalId)
         {
             var result = (from r in _context.Corners where r.ExternalId == externalId select r).FirstOrDefault();
             return result;

@@ -1,14 +1,16 @@
 ﻿using MatchXMLParser.Models;
 using System.Data.Entity;
 
+using System.Data.Entity.Migrations;
+
 namespace MatchXMLParser.Repos
 {
     public class MainDbContext : DbContext
     {
         public MainDbContext()
-            : base("MatchXMLParser")
+            : base("OracleDBContext")
         {
-            Database.SetInitializer<MainDbContext>(new CreateDatabaseIfNotExists<MainDbContext>());
+            Database.SetInitializer<MainDbContext>(new MigrateDatabaseToLatestVersion<MainDbContext, MigrateDbConfiguration>());
         }
 
         public virtual IDbSet<Match> Matches { get; set; }
@@ -28,8 +30,13 @@ namespace MatchXMLParser.Repos
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer(
-                new MigrateDatabaseToLatestVersion<MainDbContext, MigrateDbConfiguration>());
+            modelBuilder.HasDefaultSchema("dcs".ToUpper());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MainDbContext, MigrateDbConfiguration>());
+        }
+
+        public static MainDbContext Create()
+        {
+            return new MainDbContext();
         }
     }
 
@@ -37,9 +44,8 @@ namespace MatchXMLParser.Repos
     {
         public MigrateDbConfiguration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
-
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
         }
     }
 }

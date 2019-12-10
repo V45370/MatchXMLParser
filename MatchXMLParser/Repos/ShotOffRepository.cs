@@ -47,7 +47,7 @@ namespace MatchXMLParser.Repos
             var result = (from r in _context.ShotsOff where r.Id == Id select r).FirstOrDefault();
             return result;
         }
-        public ShotOff FindByExternalId(string externalId)
+        public ShotOff FindByExternalId(int externalId)
         {
             var result = (from r in _context.ShotsOff where r.ExternalId == externalId select r).FirstOrDefault();
             return result;

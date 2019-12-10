@@ -12,6 +12,6 @@ namespace MatchXMLParser.Repos
         void Update(T entity);
         T FindById(int Id);
         //T FindByExternalId(int externalId);
-        T FindByExternalId(string externalId);
+        T FindByExternalId(int externalId);
     }
 }

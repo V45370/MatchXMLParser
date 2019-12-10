@@ -48,7 +48,7 @@ namespace MatchXMLParser.Repos
             var result = (from r in _context.Possessions where r.Id == Id select r).FirstOrDefault();
             return result;
         }
-        public Possession FindByExternalId(string externalId)
+        public Possession FindByExternalId(int externalId)
         {
             var result = (from r in _context.Possessions where r.ExternalId == externalId select r).FirstOrDefault();
             return result;

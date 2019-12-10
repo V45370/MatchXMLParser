@@ -100,7 +100,7 @@ namespace MatchXMLParser
             //Teams
             Team homeTeam = new Team()
             {
-                ExternalId = homeTeamId,
+                ExternalId = int.Parse(homeTeamId),
                 FullName = homeTeamFullName,
                 Acronym = homeTeamAcronym
             };
@@ -108,7 +108,7 @@ namespace MatchXMLParser
 
             Team awayTeam = new Team()
             {
-                ExternalId = awayTeamId,
+                ExternalId = int.Parse(awayTeamId),
                 FullName = awayTeamFullName,
                 Acronym = awayTeamAcronym
             };
@@ -124,7 +124,7 @@ namespace MatchXMLParser
                 //string awayPlayerName = awayPlayersName.ElementAt(i);
                 Player awayPlayer = new Player()
                 {
-                    ExternalId = awayPlayerId,
+                    ExternalId = int.Parse(awayPlayerId),
                     //Name = awayPlayerName
                 };
                 CreatePlayer(awayPlayer);
@@ -137,7 +137,7 @@ namespace MatchXMLParser
                 //string homePlayerName = homePlayersName.ElementAt(i);
                 Player homePlayer = new Player()
                 {
-                    ExternalId = homePlayerId,
+                    ExternalId = int.Parse(homePlayerId),
                     //Name = homePlayerName
                 };
                 CreatePlayer(homePlayer);
@@ -160,7 +160,7 @@ namespace MatchXMLParser
                 Goal goal = new Goal()
                 {
                     MatchId = matchIdInt,
-                    ExternalId = goalId,
+                    ExternalId = int.Parse(goalId),
                     Minute = minute,
                     ScorerId = scorerId,
                     AssistId = assistId,
@@ -184,7 +184,7 @@ namespace MatchXMLParser
                 Corner cornerObject = new Corner()
                 {
                     MatchId = matchIdInt,
-                    ExternalId = cornerId,
+                    ExternalId = int.Parse(cornerId),
                     Minute = minute,
                     TeamId = teamId,
                     Player1 = player1
@@ -205,7 +205,7 @@ namespace MatchXMLParser
                 ShotOn shotOnObject = new ShotOn()
                 {
                     MatchId = matchIdInt,
-                    ExternalId = cornerId,
+                    ExternalId = int.Parse(cornerId),
                     Minute = minute,
                     TeamId = teamId,
                     Player1 = player1
@@ -226,7 +226,7 @@ namespace MatchXMLParser
                 ShotOff shotOffObject = new ShotOff()
                 {
                     MatchId = matchIdInt,
-                    ExternalId = cornerId,
+                    ExternalId = int.Parse(cornerId),
                     Minute = minute,
                     TeamId = teamId,
                     Player1 = player1
@@ -247,7 +247,7 @@ namespace MatchXMLParser
                 Cross crossObject = new Cross()
                 {
                     MatchId = matchIdInt,
-                    ExternalId = cornerId,
+                    ExternalId = int.Parse(cornerId),
                     Minute = minute,
                     TeamId = teamId,
                     Player1 = player1,
@@ -273,7 +273,7 @@ namespace MatchXMLParser
                     Minute = minute,
                     HomePossession = homePos,
                     AwayPossession = awayPos,
-                    ExternalId = possessionId,
+                    ExternalId = int.Parse(possessionId),
                 };
 
                 if(teamId != null)
@@ -284,7 +284,7 @@ namespace MatchXMLParser
             //Match
             Match match = new Match()
             {
-                ExternalId = matchId,
+                ExternalId = int.Parse(matchId),
                 Date = date,
                 HomeTeam = homeTeam,
                 AwayTeam = awayTeam,

@@ -49,7 +49,7 @@ namespace MatchXMLParser.Repos
             var result = (from r in _context.Players where r.Id == Id select r).FirstOrDefault();
             return result;
         }
-        public Player FindByExternalId(string externalId)
+        public Player FindByExternalId(int externalId)
         {
             var result = (from r in _context.Players where r.ExternalId == externalId select r).FirstOrDefault();
             return result;

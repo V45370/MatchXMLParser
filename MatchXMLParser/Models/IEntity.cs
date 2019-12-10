@@ -4,6 +4,6 @@
     {
         int Id { get; set; }
         //int ExternalId { get; set; }
-        string ExternalId { get; set; }
+        int ExternalId { get; set; }
     }
 }
