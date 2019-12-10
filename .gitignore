@@ -44,3 +44,8 @@ MatchXMLParser/bin/Debug/EntityFramework.SqlServer.dll
 .vs/MatchXMLParser/v15/Server/sqlite3/storage.ide-shm
 .vs/MatchXMLParser/v15/Server/sqlite3/storage.ide
 .vs/MatchXMLParser/v15/Server/sqlite3/db.lock
+.vs/MatchXMLParser/v16/Server/sqlite3/storage.ide-wal
+.vs/MatchXMLParser/v16/Server/sqlite3/storage.ide-shm
+.vs/MatchXMLParser/v16/Server/sqlite3/storage.ide
+.vs/MatchXMLParser/v16/Server/sqlite3/db.lock
+MatchXMLParser/obj/Debug/MatchXMLParser.csprojAssemblyReference.cache
