@@ -11,147 +11,138 @@ namespace MatchXMLParser.Repos
                 "DCS.Corners",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         MatchId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Minute = c.String(),
                         Player1 = c.String(),
                         TeamId = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.ExternalId);
             
             CreateTable(
                 "DCS.Crosses",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         MatchId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Minute = c.String(),
                         Player1 = c.String(),
                         TeamId = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.ExternalId);
             
             CreateTable(
                 "DCS.Goals",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         MatchId = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Minute = c.String(),
                         ScorerId = c.String(),
                         AssistId = c.String(),
                         Type = c.String(),
                         TeamId = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.ExternalId);
             
             CreateTable(
                 "DCS.Matches",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Date = c.DateTime(nullable: false),
                         Country = c.String(),
                         League = c.String(),
                         Season = c.String(),
                         Stage = c.String(),
-                        Player_Id = c.Decimal(precision: 10, scale: 0),
-                        AwayTeam_Id = c.Decimal(precision: 10, scale: 0),
-                        HomeTeam_Id = c.Decimal(precision: 10, scale: 0),
+                        Player_ExternalId = c.Decimal(precision: 10, scale: 0),
+                        AwayTeam_ExternalId = c.Decimal(precision: 10, scale: 0),
+                        HomeTeam_ExternalId = c.Decimal(precision: 10, scale: 0),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("DCS.Players", t => t.Player_Id)
-                .ForeignKey("DCS.Teams", t => t.AwayTeam_Id)
-                .ForeignKey("DCS.Teams", t => t.HomeTeam_Id)
-                .Index(t => t.Player_Id)
-                .Index(t => t.AwayTeam_Id)
-                .Index(t => t.HomeTeam_Id);
+                .PrimaryKey(t => t.ExternalId)
+                .ForeignKey("DCS.Players", t => t.Player_ExternalId)
+                .ForeignKey("DCS.Teams", t => t.AwayTeam_ExternalId)
+                .ForeignKey("DCS.Teams", t => t.HomeTeam_ExternalId)
+                .Index(t => t.Player_ExternalId)
+                .Index(t => t.AwayTeam_ExternalId)
+                .Index(t => t.HomeTeam_ExternalId);
             
             CreateTable(
                 "DCS.Players",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Name = c.String(),
-                        Match_Id = c.Decimal(precision: 10, scale: 0),
-                        Match_Id1 = c.Decimal(precision: 10, scale: 0),
+                        Match_ExternalId = c.Decimal(precision: 10, scale: 0),
+                        Match_ExternalId1 = c.Decimal(precision: 10, scale: 0),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("DCS.Matches", t => t.Match_Id)
-                .ForeignKey("DCS.Matches", t => t.Match_Id1)
-                .Index(t => t.Match_Id)
-                .Index(t => t.Match_Id1);
+                .PrimaryKey(t => t.ExternalId)
+                .ForeignKey("DCS.Matches", t => t.Match_ExternalId)
+                .ForeignKey("DCS.Matches", t => t.Match_ExternalId1)
+                .Index(t => t.Match_ExternalId)
+                .Index(t => t.Match_ExternalId1);
             
             CreateTable(
                 "DCS.Teams",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         FullName = c.String(),
                         Acronym = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.ExternalId);
             
             CreateTable(
                 "DCS.Possessions",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         MatchId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Minute = c.String(),
                         HomePossession = c.String(),
                         AwayPossession = c.String(),
                         TeamId = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.ExternalId);
             
             CreateTable(
                 "DCS.ShotOffs",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         MatchId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Minute = c.String(),
                         Player1 = c.String(),
                         TeamId = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.ExternalId);
             
             CreateTable(
                 "DCS.ShotOns",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ExternalId = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         MatchId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Minute = c.String(),
                         Player1 = c.String(),
                         TeamId = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.ExternalId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("DCS.Matches", "HomeTeam_Id", "DCS.Teams");
-            DropForeignKey("DCS.Players", "Match_Id1", "DCS.Matches");
-            DropForeignKey("DCS.Matches", "AwayTeam_Id", "DCS.Teams");
-            DropForeignKey("DCS.Players", "Match_Id", "DCS.Matches");
-            DropForeignKey("DCS.Matches", "Player_Id", "DCS.Players");
-            DropIndex("DCS.Players", new[] { "Match_Id1" });
-            DropIndex("DCS.Players", new[] { "Match_Id" });
-            DropIndex("DCS.Matches", new[] { "HomeTeam_Id" });
-            DropIndex("DCS.Matches", new[] { "AwayTeam_Id" });
-            DropIndex("DCS.Matches", new[] { "Player_Id" });
+            DropForeignKey("DCS.Matches", "HomeTeam_ExternalId", "DCS.Teams");
+            DropForeignKey("DCS.Players", "Match_ExternalId1", "DCS.Matches");
+            DropForeignKey("DCS.Matches", "AwayTeam_ExternalId", "DCS.Teams");
+            DropForeignKey("DCS.Players", "Match_ExternalId", "DCS.Matches");
+            DropForeignKey("DCS.Matches", "Player_ExternalId", "DCS.Players");
+            DropIndex("DCS.Players", new[] { "Match_ExternalId1" });
+            DropIndex("DCS.Players", new[] { "Match_ExternalId" });
+            DropIndex("DCS.Matches", new[] { "HomeTeam_ExternalId" });
+            DropIndex("DCS.Matches", new[] { "AwayTeam_ExternalId" });
+            DropIndex("DCS.Matches", new[] { "Player_ExternalId" });
             DropTable("DCS.ShotOns");
             DropTable("DCS.ShotOffs");
             DropTable("DCS.Possessions");

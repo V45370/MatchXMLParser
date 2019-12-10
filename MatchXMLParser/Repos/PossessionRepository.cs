@@ -43,11 +43,6 @@ namespace MatchXMLParser.Repos
             _context.SaveChanges();
         }
 
-        public Possession FindById(int Id)
-        {
-            var result = (from r in _context.Possessions where r.Id == Id select r).FirstOrDefault();
-            return result;
-        }
         public Possession FindByExternalId(int externalId)
         {
             var result = (from r in _context.Possessions where r.ExternalId == externalId select r).FirstOrDefault();

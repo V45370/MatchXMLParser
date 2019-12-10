@@ -44,11 +44,6 @@ namespace MatchXMLParser.Repos
 
         }
 
-        public Goal FindById(int Id)
-        {
-            var result = (from r in _context.Goals where r.Id == Id select r).FirstOrDefault();
-            return result;
-        }
         public Goal FindByExternalId(int externalId)
         {
             var result = (from r in _context.Goals where r.ExternalId == externalId select r).FirstOrDefault();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,11 @@ namespace MatchXMLParser.Models
         {
             Matches = new List<Match>();
         }
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public int Id { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+        //public int Id { get; set; }
         //public int ExternalId { get; set; }
+        [Key]
         public int ExternalId { get; set; }
         public string Name { get; set; }
         public virtual List<Match> Matches { get; set; }

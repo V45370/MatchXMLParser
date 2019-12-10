@@ -13,7 +13,7 @@ namespace MatchXMLParser.Repos
         
         string IMigrationMetadata.Id
         {
-            get { return "201912101714353_CreateTables"; }
+            get { return "201912101805106_CreateTables"; }
         }
         
         string IMigrationMetadata.Source

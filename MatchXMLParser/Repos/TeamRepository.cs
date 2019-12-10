@@ -44,11 +44,6 @@ namespace MatchXMLParser.Repos
 
         }
 
-        public Team FindById(int Id)
-        {
-            var result = (from r in _context.Teams where r.Id == Id select r).FirstOrDefault();
-            return result;
-        }
         public Team FindByExternalId(int externalId)
         {
             var result = (from r in _context.Teams where r.ExternalId == externalId select r).FirstOrDefault();

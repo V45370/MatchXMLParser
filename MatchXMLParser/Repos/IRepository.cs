@@ -10,8 +10,6 @@ namespace MatchXMLParser.Repos
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
-        T FindById(int Id);
-        //T FindByExternalId(int externalId);
         T FindByExternalId(int externalId);
     }
 }

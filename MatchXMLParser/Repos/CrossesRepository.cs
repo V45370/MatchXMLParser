@@ -42,11 +42,6 @@ namespace MatchXMLParser.Repos
             _context.SaveChanges();
         }
 
-        public Cross FindById(int Id)
-        {
-            var result = (from r in _context.Crosses where r.Id == Id select r).FirstOrDefault();
-            return result;
-        }
         public Cross FindByExternalId(int externalId)
         {
             var result = (from r in _context.Crosses where r.ExternalId == externalId select r).FirstOrDefault();
