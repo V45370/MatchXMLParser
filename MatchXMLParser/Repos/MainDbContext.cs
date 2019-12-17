@@ -10,8 +10,10 @@ namespace MatchXMLParser.Repos
     {
         // Enable-Migrations -Auto
         // PM> Add-Migration -name TablesCreation -ConnectionStringName HistoricDataDbContext -ConfigurationTypeName Configuration
+        // Update-Database
+
         public MainDbContext()
-            : base("HistoricDataDbContext")
+            : base("HistoricDataDbContextAWS")
         {
             //Configuration
             Database.SetInitializer<MainDbContext>(new CreateDatabaseIfNotExists<MainDbContext>());
