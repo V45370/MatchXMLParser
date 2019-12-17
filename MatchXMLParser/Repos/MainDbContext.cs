@@ -31,6 +31,7 @@ namespace MatchXMLParser.Repos
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.HasDefaultSchema("dcs".ToUpper());
             modelBuilder.HasDefaultSchema("enetscores".ToUpper());
         }
 
