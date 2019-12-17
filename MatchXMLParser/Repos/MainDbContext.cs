@@ -8,7 +8,7 @@ namespace MatchXMLParser.Repos
     public class MainDbContext : DbContext
     {
         public MainDbContext()
-            : base("OracleDBContext")
+            : base("MatchXMLParser")
         {
             Database.SetInitializer<MainDbContext>(new MigrateDatabaseToLatestVersion<MainDbContext, MigrateDbConfiguration>());
         }
