@@ -56,6 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201912171933152_TablesCreation.cs" />
+    <Compile Include="Migrations\201912171933152_TablesCreation.Designer.cs">
+      <DependentUpon>201912171933152_TablesCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Corner.cs" />
     <Compile Include="Models\Cross.cs" />
     <Compile Include="Models\Possession.cs" />
@@ -87,7 +92,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <EmbeddedResource Include="Migrations\201912171933152_TablesCreation.resx">
+      <DependentUpon>201912171933152_TablesCreation.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

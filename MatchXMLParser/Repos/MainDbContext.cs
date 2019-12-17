@@ -1,4 +1,5 @@
-﻿using MatchXMLParser.Models;
+﻿using MatchXMLParser.Migrations;
+using MatchXMLParser.Models;
 using System.Data.Entity;
 
 using System.Data.Entity.Migrations;
@@ -7,31 +8,28 @@ namespace MatchXMLParser.Repos
 {
     public class MainDbContext : DbContext
     {
+        // Enable-Migrations -Auto
+        // PM> Add-Migration -name TablesCreation -ConnectionStringName HistoricDataDbContext -ConfigurationTypeName Configuration
         public MainDbContext()
-            : base("MatchXMLParser")
+            : base("HistoricDataDbContext")
         {
-            Database.SetInitializer<MainDbContext>(new MigrateDatabaseToLatestVersion<MainDbContext, MigrateDbConfiguration>());
+            //Configuration
+            Database.SetInitializer<MainDbContext>(new CreateDatabaseIfNotExists<MainDbContext>());
         }
 
         public virtual IDbSet<Match> Matches { get; set; }
         public virtual IDbSet<Player> Players { get; set; }
         public virtual IDbSet<Team> Teams { get; set; }
         public virtual IDbSet<Goal> Goals { get; set; }
-
         public virtual IDbSet<Corner> Corners { get; set; }
-
         public virtual IDbSet<Possession> Possessions { get; set; }
-
         public virtual IDbSet<ShotOn> ShotsOn{ get; set; }
-
         public virtual IDbSet<ShotOff> ShotsOff { get; set; }
-
         public virtual IDbSet<Cross> Crosses{ get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("dcs".ToUpper());
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MainDbContext, MigrateDbConfiguration>());
+            modelBuilder.HasDefaultSchema("enetscores".ToUpper());
         }
 
         public static MainDbContext Create()
@@ -40,14 +38,6 @@ namespace MatchXMLParser.Repos
         }
     }
 
-    public class MigrateDbConfiguration : System.Data.Entity.Migrations.DbMigrationsConfiguration<MainDbContext>
-    {
-        public MigrateDbConfiguration()
-        {
-            AutomaticMigrationsEnabled = false;
-            AutomaticMigrationDataLossAllowed = false;
-        }
-    }
 }
 
 
